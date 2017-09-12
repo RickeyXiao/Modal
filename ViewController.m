@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "XWModalView.h"
 
 @interface ViewController ()
 
@@ -14,16 +15,13 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+- (IBAction)modal:(id)sender
+{
+    XWModalView *modalView = [XWModalView modalView];
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    customView.backgroundColor = [UIColor orangeColor];
+    modalView.customView = customView;
+    [modalView show];
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

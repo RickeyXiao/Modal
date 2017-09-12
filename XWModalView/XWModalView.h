@@ -13,14 +13,12 @@ typedef NS_ENUM(NSUInteger, XWModalViewStyle) {
     XWModalViewStyleSheet
 };
 
-@class XWAction, XWModalAnimation;
+@class XWAction, XWModalAnimation, XWMainView;
 
 @interface XWModalView : UIView
 
 + (instancetype)modalView;
-
 + (instancetype)modalViewWithStyle:(XWModalViewStyle)style;
-
 + (instancetype)modalViewWithStyle:(XWModalViewStyle)style
                          animation:(XWModalAnimation *)animation;
 
@@ -30,7 +28,9 @@ typedef NS_ENUM(NSUInteger, XWModalViewStyle) {
 - (void)addAction:(XWAction *)action;
 
 @property (nonatomic, assign) CGSize actionButtonSize;
-
 @property (nonatomic, strong) UIView *customView;
+@property (nonatomic, strong, readonly) XWMainView *mainView;
+@property (nonatomic, assign, readonly) XWModalViewStyle style;
+@property (nonatomic, strong, readonly) XWModalAnimation *animation;
 
 @end

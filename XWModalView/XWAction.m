@@ -12,19 +12,20 @@
 
 + (instancetype)actionWithTitle:(NSString *)title
                           style:(XWActionStyle)style
-                        handler:(void (^)())handler
+                        handler:(XWActionHandler)handler
 {
     return [[self alloc] initWithTitle:title style:style handler:handler];
 }
 
 - (instancetype)initWithTitle:(NSString *)title
                         style:(XWActionStyle)style
-                      handler:(void (^)())handler
+                      handler:(XWActionHandler)handler
 {
     self = [super init];
     if (self) {
         _title = title;
         _style = style;
+        _handler = handler;
     }
     return self;
 }

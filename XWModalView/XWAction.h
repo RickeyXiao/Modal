@@ -14,17 +14,20 @@ typedef NS_ENUM(NSUInteger, XWActionStyle) {
     XWActionStyleDestructive = 2,
 };
 
+typedef void (^XWActionHandler)();
+
 @interface XWAction : NSObject
 
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, assign, readonly) XWActionStyle style;
+@property (nonatomic, copy, readonly) XWActionHandler handler;
 
 + (instancetype)actionWithTitle:(NSString *)title
                           style:(XWActionStyle)style
-                        handler:(void (^)())handler;
+                        handler:(XWActionHandler)handler;
 
 - (instancetype)initWithTitle:(NSString *)title
                         style:(XWActionStyle)style
-                      handler:(void (^)())handler;
+                      handler:(XWActionHandler)handler;
 
 @end
